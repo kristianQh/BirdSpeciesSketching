@@ -1,0 +1,6 @@
+__pycache__/
+output_sketches/
+U2Net_/
+CUB_200_2011/
+wandb/
+*.pt
