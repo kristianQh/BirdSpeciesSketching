@@ -199,4 +199,4 @@ def compare_accuricies(test_imgs, start_iter, end_iter, interval, evalset_path1,
     print("Familly accuracy 2:", fam_acc2)    
 
 
-compare_accuricies(test_imgs, 1100, 1300, 20, "70s_colored_92sketches", "70s_colored_92sketches", 70, 1, 0)
+compare_accuricies(test_imgs, 1100, 1300, 20, "70s_colored_92sketches", "70s_colored_92sketches", 70, 10, 0)
