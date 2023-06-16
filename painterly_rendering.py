@@ -86,6 +86,7 @@ def main(args):
         else:
             epoch_range = tqdm(range(num_iters))
 
+        output_name = f"stage{stage}_best_iter"
         for epoch in epoch_range:
             if not args.display:
                 epoch_range.refresh()
@@ -139,8 +140,8 @@ def main(args):
                             best_iter = epoch
                             terminate = False
                             utils.plot_batch(
-                                inputs, sketches, args.output_dir, counter, use_wandb=args.use_wandb, title="best_iter.jpg")
-                            renderer.save_svg(args.output_dir, "best_iter")
+                                inputs, sketches, args.output_dir, counter, use_wandb=args.use_wandb, title=f"{output_name}.jpg")
+                            renderer.save_svg(args.output_dir, output_name)
                             if epoch > 20:
                                 testit = renderer.shapes
                                 np.save(args.output_dir +
@@ -177,8 +178,7 @@ def main(args):
 
             counter += 1
 
-        output_name = "stage" + stage + "_best_iter.svg"
-        path_svg = os.path.join(args.output_dir, "best_iter.svg")
+        path_svg = os.path.join(args.output_dir, f"{output_name}.svg")
         utils.log_sketch_summary_final(
             path_svg, args.use_wandb, args.device, best_iter, best_loss, "best total")
 
