@@ -74,7 +74,7 @@ if args.colab:
     print(f"Results will be saved to \n[{output_dir}] ...")
     print("=" * 50)
 
-seeds = [0]
+seeds = list(range(0, args.num_sketches * 1000, 1000))
 
 manager = mp.Manager()
 losses_all = manager.dict()
